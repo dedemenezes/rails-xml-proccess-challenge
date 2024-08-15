@@ -10,6 +10,7 @@ class CreateDocumentReceiptJob < ApplicationJob
     dh_emi = document.search("dhEmi").first&.text
 
     receipt = Receipt.new(serie:, dh_emi:, n_nf:)
+    receipt.document = document
     receipt.save
   end
 end

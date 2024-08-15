@@ -5,6 +5,7 @@ class Receipt < ApplicationRecord
   validates_with DHCannotBeInTheFuture
 
   before_validation :fill_n_nf_with_zeros
+  belongs_to :document
 
   private
 

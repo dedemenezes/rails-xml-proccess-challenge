@@ -1,7 +1,9 @@
 class Document < ApplicationRecord
   validates :xml, presence: true
-  has_one_attached :xml
   validate :content_type_must_be_xml
+
+  has_one_attached :xml
+  has_one :receipt
 
   private
 
