@@ -1,0 +1,7 @@
+:concurrency: 3
+:timeout: 60
+:verbose: true
+:queues:
+  # Queue priority:
+  # https://github.com/sidekiq/sidekiq/wiki/Advanced-Options
+  - default
