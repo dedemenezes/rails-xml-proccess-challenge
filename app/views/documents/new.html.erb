@@ -1,0 +1,15 @@
+
+<div class="container mt-5">
+  <h1 class="text-center mb-4"><%= t('new_receipt') %></h1>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+      <%= simple_form_for @document, html: { class: 'row' } do |f| %>
+
+        <div class="d-flex align-items-start">
+        <%= f.input :xml, label: false, wrapper_html: { class: 'flex-grow-1' }, input_html: { class: "w-100 rounded-0 rounded-start" } %>
+        <%= f.submit class: 'btn btn-primary rounded-0 rounded-end' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

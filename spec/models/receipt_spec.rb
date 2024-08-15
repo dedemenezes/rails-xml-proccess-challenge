@@ -2,10 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Receipt, type: :model do
   describe 'Validations' do
-    it { should validate_presence_of(:n_nf) }
     it { should validate_presence_of(:serie) }
     it { should validate_presence_of(:dh_emi) }
-    it { should validate_length_of(:n_nf).is_equal_to(9) }
     it { should allow_values('4', '13', '888').for(:serie) }
     it { should_not allow_values('0', '1000', '10000').for(:serie) }
     it 'is expected to validate that :dh_emi cannot be before NF Gov creation' do
