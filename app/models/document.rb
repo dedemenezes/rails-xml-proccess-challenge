@@ -5,8 +5,8 @@ class Document < ApplicationRecord
   private
 
   def content_type_must_be_xml
-    if nf.present? && !nf.blob.content_type.match?(/xml/)
-      errors.add(:nf, "must be XML file format")
+    if xml.present? && !xml.blob.content_type.match?(/xml/)
+      errors.add(:xml, "must be XML file format")
     end
   end
 end
