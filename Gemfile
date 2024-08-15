@@ -59,7 +59,7 @@ group :development, :test do
 
   # Test suit
   gem 'rspec-rails', '~> 6.0.0'
-  gem 'shoulda-matchers', '~> 5.0'
+  gem 'shoulda-matchers', '~> 6.3'
   gem 'factory_bot_rails'
 end
 
