@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_18_024251) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_18_145822) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_18_024251) do
     t.string "cfop", null: false
     t.string "u_com", null: false
     t.float "q_com", default: 0.0, null: false
-    t.integer "v_un_com", default: 0, null: false
+    t.float "v_un_com", default: 0.0, null: false
     t.bigint "document_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -26,7 +26,7 @@
                 <td><%= product.cfop %></td>
                 <td><%= product.u_com %></td>
                 <td><%= product.q_com %></td>
-                <td><%= product.v_un_com.fdiv(Product::SHOW_PRICE) %></td>
+                <td><%= product.v_un_com %></td>
                 <% product.taxes.order(category: :asc).each do |tax| %>
                   <td id=<%= dom_id(tax) %>><%= tax.value %></td>
                 <% end %>
