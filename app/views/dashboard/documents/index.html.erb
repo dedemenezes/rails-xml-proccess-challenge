@@ -21,7 +21,7 @@
             <th scope="row"><%= document.id %></th>
             <td><%= document.receipt&.n_nf %></td>
             <td><%= document.receipt&.issue_date %></td>
-            <td><%= link_to 'Ver mais', '#', class: '' %></td>
+            <td><%= link_to 'Ver mais', dashboard_document_path(document), class: '' %></td>
           </tr>
           <% end %>
         </tbody>
