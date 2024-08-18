@@ -8,7 +8,7 @@ class DocumentsController < ApplicationController
     if @document.save
       CreateDocumentReceiptJob.perform_later(@document)
       CreateDocumentProductsJob.perform_later(@document)
-      redirect_to new_document_path
+      redirect_to dashboard_documents_path
     else
       render :new, status: :unprocessable_entity
     end
