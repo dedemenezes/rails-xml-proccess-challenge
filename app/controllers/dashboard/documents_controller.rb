@@ -4,6 +4,6 @@ class Dashboard::DocumentsController < ApplicationController
   end
 
   def show
-    binding.b
+    @document = Document.find(params[:id])
   end
 end

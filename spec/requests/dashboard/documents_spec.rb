@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Dashboard::Documents", type: :request do
-  describe "GET /dashboard" do
+  describe "GET #index" do
     it 'should list all documents' do
       create(:document)
       get dashboard_documents_path
@@ -11,11 +11,12 @@ RSpec.describe "Dashboard::Documents", type: :request do
     end
   end
 
-  describe 'GET /dashboard/documents/:id' do
+  describe 'GET #show' do
     it 'should list document details' do
       document = create(:document)
       get dashboard_document_path(document)
       assert_response :success
+      assert_select 'h1', "Documento #{document.id}"
     end
   end
 end
