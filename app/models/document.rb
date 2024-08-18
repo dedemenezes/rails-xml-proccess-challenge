@@ -3,8 +3,8 @@ class Document < ApplicationRecord
   validate :content_type_must_be_xml
 
   has_one_attached :xml
-  has_one :receipt
-  has_many :products
+  has_one :receipt, dependent: :destroy
+  has_many :products, dependent: :destroy
 
   private
 
