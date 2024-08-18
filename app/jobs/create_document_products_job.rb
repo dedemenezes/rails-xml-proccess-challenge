@@ -4,7 +4,7 @@ class CreateDocumentProductsJob < ApplicationJob
   queue_as :default
 
   def perform(document)
-    xml_file = File.open(ActiveStorage::Blob.service.path_for(document.xml.key))
+    xml_file = URI.open("https://rails-main-dedev-lab.s3.amazonaws.com/#{document.xml.key}")
     xml_doc = Nokogiri::XML(xml_file)
 
     products = xml_doc.search("det").map do |e|

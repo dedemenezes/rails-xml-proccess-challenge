@@ -39,3 +39,4 @@ instructions.md
 
 # Ignore dump jobs
 dump.rdb
+.env*

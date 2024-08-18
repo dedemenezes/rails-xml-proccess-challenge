@@ -47,6 +47,8 @@ gem 'nokogiri', '~> 1.16', '>= 1.16.7'
 
 gem "sidekiq", "~> 7"
 gem "sidekiq-failures"
+gem 'aws-sdk-s3'
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -62,6 +64,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.1.4'
   gem 'shoulda-matchers', '~> 6.4'
   gem 'factory_bot_rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
