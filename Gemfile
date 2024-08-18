@@ -48,6 +48,7 @@ gem 'nokogiri', '~> 1.16', '>= 1.16.7'
 gem "sidekiq", "~> 7"
 gem "sidekiq-failures"
 gem 'aws-sdk-s3'
+gem "devise"
 
 
 group :development, :test do
