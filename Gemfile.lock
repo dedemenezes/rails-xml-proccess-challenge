@@ -163,7 +163,7 @@ GEM
     matrix (0.4.2)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
-    minitest (5.25.0)
+    minitest (5.25.1)
     msgpack (1.7.2)
     net-imap (0.4.14)
       date
@@ -254,14 +254,14 @@ GEM
     rspec-mocks (3.13.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-rails (6.0.4)
+    rspec-rails (6.1.4)
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       railties (>= 6.1)
-      rspec-core (~> 3.12)
-      rspec-expectations (~> 3.12)
-      rspec-mocks (~> 3.12)
-      rspec-support (~> 3.12)
+      rspec-core (~> 3.13)
+      rspec-expectations (~> 3.13)
+      rspec-mocks (~> 3.13)
+      rspec-support (~> 3.13)
     rspec-support (3.13.1)
     rubocop (1.65.1)
       json (~> 2.3)
@@ -398,7 +398,7 @@ DEPENDENCIES
   nokogiri (~> 1.16, >= 1.16.7)
   puma (>= 5.0)
   rails (~> 7.2.0)
-  rspec-rails (~> 6.0.0)
+  rspec-rails (~> 6.1.4)
   rubocop-rails-omakase
   sassc-rails
   selenium-webdriver
