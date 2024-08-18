@@ -57,7 +57,7 @@
         <p class="mb-0">IPI: <strong><%= @document.products.sum { |product| product.value_for(:ipi) } %></strong></p>
         <p class="mb-0">PIS: <strong><%= @document.products.sum { |product| product.value_for(:pis) } %></strong></p>
         <p class="mb-0">COFINS: <strong><%= @document.products.sum { |product| product.value_for(:cofins) } %></strong></p>
-        <p>VALOR TOTAL: <strong><%= @document.receipt.total_value %></strong></p>
+        <p>VALOR TOTAL: <strong><%= @document.receipt&.total_value %></strong></p>
       </div>
     </div>
   </div>
