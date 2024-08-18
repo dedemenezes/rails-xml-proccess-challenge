@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :product do
-    name { "Sofa" }
+    name { "Batata frita" }
     ncm { "02013000" }
     cfop { "6102" }
     u_com { "BALDE" }

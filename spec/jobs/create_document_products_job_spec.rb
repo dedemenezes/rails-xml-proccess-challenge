@@ -12,7 +12,6 @@ RSpec.describe CreateDocumentProductsJob, type: :job do
       expect(CreateDocumentProductsJob).to(
         have_been_performed.with(document)
       )
-      p Product.all
       expect(Product.count).to eq(2)
     end
   end
