@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_17_150133) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_18_024251) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -66,6 +66,16 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_17_150133) do
     t.datetime "updated_at", null: false
     t.integer "document_id", null: false
     t.index ["document_id"], name: "index_receipts_on_document_id"
+  end
+
+  create_table "taxes", force: :cascade do |t|
+    t.string "category", null: false
+    t.float "value", default: 0.0, null: false
+    t.string "taxable_type"
+    t.integer "taxable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["taxable_type", "taxable_id"], name: "index_taxes_on_taxable"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
