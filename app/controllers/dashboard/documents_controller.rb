@@ -20,5 +20,9 @@ class Dashboard::DocumentsController < ApplicationController
 
   def show
     @document = Document.find(params[:id])
+    @products = @document.products
+    if params[:order_by].present?
+      @products = @products.sort_by { |prod| prod.taxes.find { |tax| tax.category == params[:order_by] }.value }.reverse
+    end
   end
 end
