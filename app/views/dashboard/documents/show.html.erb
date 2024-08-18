@@ -1,7 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1 class="text-center">Documento <%= @document.id %></h1>
+      <div class="position-relative mt-5">
+        <%= link_to "Voltar", dashboard_documents_path, class: "btn btn-secondary position-absolute top-0" %>
+        <h1 class="flex-grow-1 text-center mb-4">Documento <%= @document.id %></h1>
+      </div>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
@@ -32,6 +35,18 @@
                 <% end %>
               </tr>
             <% end %>
+            <tr>
+              <th scope="row">TOTAL</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><%= @document.products.sum { |product| product.v_un_com }.fdiv(Product::SHOW_PRICE) %></td>
+              <td><%= @document.products.sum { |product| product.value_for(:cofins) } %></td>
+              <td><%= @document.products.sum { |product| product.value_for(:icms) } %></td>
+              <td><%= @document.products.sum { |product| product.value_for(:ipi) } %></td>
+              <td><%= @document.products.sum { |product| product.value_for(:pis) } %></td>
+            </tr>
           </tbody>
         </table>
       </div>

@@ -5,6 +5,10 @@ class Product < ApplicationRecord
   belongs_to :document
   has_many :taxes, as: :taxable, dependent: :destroy
 
+  def value_for(tax)
+    taxes.find_by(category: tax.to_s.upcase)&.value || 0
+  end
+
   def icms
     taxes.find_by(category: "ICMS")&.value || 0
   end
