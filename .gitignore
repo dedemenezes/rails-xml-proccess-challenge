@@ -36,3 +36,6 @@
 
 # Ignore instructions
 instructions.md
+
+# Ignore dump jobs
+dump.rdb
