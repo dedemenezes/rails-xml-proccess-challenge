@@ -8,7 +8,6 @@ class DocumentsController < ApplicationController
     if @document.save
       CreateDocumentReceiptJob.perform_later(@document)
       CreateDocumentProductsJob.perform_later(@document)
-      CreateDocumentTaxesJob.perform_later(@document)
       redirect_to new_document_path
     else
       render :new, status: :unprocessable_entity

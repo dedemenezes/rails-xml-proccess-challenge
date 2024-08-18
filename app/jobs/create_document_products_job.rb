@@ -22,6 +22,8 @@ class CreateDocumentProductsJob < ApplicationJob
     product_collection = products.map do |attributes|
       Product.find_or_create_by(attributes)
     end
+
+    CreateDocumentTaxesJob.perform_later(document)
   end
 
   def find_by_tag(element, name)

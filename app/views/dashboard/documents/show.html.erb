@@ -30,6 +30,9 @@
                 <% product.taxes.order(category: :asc).each do |tax| %>
                   <td id=<%= dom_id(tax) %>><%= tax.value %></td>
                 <% end %>
+                <% product.taxes.order(category: :asc).each do |tax| %>
+                  <td scope="col"><%= tax.value %></td>
+                <% end %>
               </tr>
             <% end %>
           </tbody>
