@@ -18,7 +18,7 @@ RSpec.describe "Dashboard::Documents", type: :request do
       assert_response :success
       assert_select 'h1', "Documento #{p_icms.taxable.document.id}"
       assert_select 'td', p_icms.taxable.ncm
-      assert_select "td#tax_#{p_icms.id}", "0.25"
+      assert_select "td#tax_#{p_icms.id}", p_icms.value.to_s
     end
   end
 end
