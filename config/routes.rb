@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :documents, only: %i[new create]
 
-  get "/dashboards", to: "dashboards#index", as: :dashboards
+  namespace :dashboard do
+    resources :documents, only: %i[index show]
+  end
 end

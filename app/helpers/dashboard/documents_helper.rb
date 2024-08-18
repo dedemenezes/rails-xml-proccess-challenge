@@ -1,0 +1,2 @@
+module Dashboard::DocumentsHelper
+end
