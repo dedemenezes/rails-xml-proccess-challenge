@@ -4,8 +4,13 @@ class CreateDocumentProductsJob < ApplicationJob
   queue_as :default
 
   def perform(document)
-    xml_file = URI.open("https://rails-main-dedev-lab.s3.amazonaws.com/#{document.xml.key}")
-    xml_doc = Nokogiri::XML(xml_file)
+    url = "https://rails-main-dedev-lab.s3.amazonaws.com/#{document.xml.key}"
+    uri = URI(url)
+
+    xml_content = Net::HTTP.get(uri)
+
+    xml_doc = Nokogiri::XML(xml_content)
+
 
     products = xml_doc.search("det").map do |e|
       {

@@ -2,9 +2,13 @@ class CreateDocumentTaxesJob < ApplicationJob
   queue_as :default
 
   def perform(document)
-    xml_file = URI.open("https://rails-main-dedev-lab.s3.amazonaws.com/#{document.xml.key}")
+    url = "https://rails-main-dedev-lab.s3.amazonaws.com/#{document.xml.key}"
+    uri = URI(url)
 
-    xml_doc = Nokogiri::XML(xml_file)
+    xml_content = Net::HTTP.get(uri)
+
+    xml_doc = Nokogiri::XML(xml_content)
+
     xml_doc.search("det").each do |det|
       taxable = find_product(det)
       next unless taxable
