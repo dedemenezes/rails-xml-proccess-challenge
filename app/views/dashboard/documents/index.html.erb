@@ -7,6 +7,16 @@
         <small class="document-total">Número de documentos: <%= Document.count %></small>
       </div>
 
+      <%= form_with url: dashboard_documents_path, method: :get, class: "d-flex mt-4 mb-3" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control rounded-0 rounded-start",
+              placeholder: "Type a keyword"
+          %>
+        <%= date_field_tag :start_date, params[:start_date] %>
+        <%= date_field_tag :end_date, params[:end_date] %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary rounded-0 rounded-end" %>
+      <% end %>
       <table class="table mt-4">
         <thead>
           <tr>
