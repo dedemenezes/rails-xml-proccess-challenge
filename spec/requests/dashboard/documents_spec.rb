@@ -13,10 +13,11 @@ RSpec.describe "Dashboard::Documents", type: :request do
 
   describe 'GET #show' do
     it 'should list document details' do
-      document = create(:document)
-      get dashboard_document_path(document)
+      product = create(:product)
+      get dashboard_document_path(product.document)
       assert_response :success
-      assert_select 'h1', "Documento #{document.id}"
+      assert_select 'h1', "Documento #{product.document.id}"
+      assert_select 'td', product.ncm
     end
   end
 end
