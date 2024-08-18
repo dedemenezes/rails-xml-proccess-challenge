@@ -9,6 +9,8 @@ class CreateDocumentTaxesJob < ApplicationJob
     xml_doc.search("det").each do |det|
 
       taxable = find_product(det)
+      next unless taxable
+
       det.search("imposto").each do |imposto|
         Tax::CATEGORIES.each do |category|
           value = imposto.search("v#{category}").first&.text || 0.0
