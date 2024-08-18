@@ -8,8 +8,9 @@ class CreateDocumentReceiptJob < ApplicationJob
     serie  = xml_doc.search("serie").first&.text
     n_nf   = xml_doc.search("nNF").first&.text
     dh_emi = xml_doc.search("dhEmi").first&.text
+    total_value = xml_doc.search("vNF").first&.text
 
-    receipt = Receipt.new(serie:, dh_emi:, n_nf:)
+    receipt = Receipt.new(serie:, dh_emi:, n_nf:, total_value:)
     receipt.document = document
     receipt.save
   end
