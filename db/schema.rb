@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_15_164240) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_17_150133) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -44,6 +44,20 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_15_164240) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "ncm", null: false
+    t.string "cfop", null: false
+    t.string "u_com", null: false
+    t.float "q_com", default: 0.0, null: false
+    t.integer "v_un_com", default: 0, null: false
+    t.integer "document_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "v_icms", default: 0.0, null: false
+    t.index ["document_id"], name: "index_products_on_document_id"
+  end
+
   create_table "receipts", force: :cascade do |t|
     t.string "n_nf", null: false
     t.datetime "dh_emi", null: false
@@ -56,5 +70,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_15_164240) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "products", "documents"
   add_foreign_key "receipts", "documents"
 end

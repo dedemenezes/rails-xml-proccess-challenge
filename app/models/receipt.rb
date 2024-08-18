@@ -7,6 +7,10 @@ class Receipt < ApplicationRecord
   before_validation :fill_n_nf_with_zeros
   belongs_to :document
 
+  def issue_date
+    dh_emi.strftime("%a, %d %b %Y %H:%M:%S")
+  end
+
   private
 
   def fill_n_nf_with_zeros

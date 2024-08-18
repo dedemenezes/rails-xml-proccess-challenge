@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+      <div class="d-flex flex-column align-items-center mb-4">
+        <h1 class="my-0">Documents</h1>
+        <small class="document-total">Número de documentos: <%= Document.count %></small>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Numero da NF</th>
+            <th scope="col">Data/Hora Emissão</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @documents.each do |document| %>
+          <tr class="document">
+            <th scope="row"><%= document.id %></th>
+            <td><%= document.receipt&.n_nf %></td>
+            <td><%= document.receipt&.issue_date %></td>
+            <td><%= link_to 'Ver mais', dashboard_document_path(document), class: '' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

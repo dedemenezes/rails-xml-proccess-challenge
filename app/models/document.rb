@@ -4,6 +4,7 @@ class Document < ApplicationRecord
 
   has_one_attached :xml
   has_one :receipt
+  has_many :products
 
   private
 

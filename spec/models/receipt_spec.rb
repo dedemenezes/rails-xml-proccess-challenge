@@ -17,4 +17,11 @@ RSpec.describe Receipt, type: :model do
       expect(receipt.errors.messages).to include(dh_emi: ["can't be in the future"])
     end
   end
+
+  describe '#emission_date_time' do
+    it 'is expected to return human readable date time' do
+      receipt = create(:receipt)
+      expect(receipt.issue_date).to eq("Wed, 14 Aug 2024 20:52:12")
+    end
+  end
 end

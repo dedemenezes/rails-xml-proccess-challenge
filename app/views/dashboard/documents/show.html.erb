@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">Documento <%= @document.id %></h1>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">NCM</th>
+              <th scope="col">CFOP</th>
+              <th scope="col">UCom</th>
+              <th scope="col">QCom</th>
+              <th scope="col">VUnCom</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @document.products.each do |product| %>
+              <tr>
+                <th scope="row"><%= product.name.truncate(30) %></th>
+                <td><%= product.ncm %></td>
+                <td><%= product.cfop %></td>
+                <td><%= product.u_com %></td>
+                <td><%= product.q_com %></td>
+                <td><%= product.v_un_com.fdiv(Product::SHOW_PRICE) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
