@@ -1,4 +1,6 @@
 class Document < ApplicationRecord
+  include PgSearch::Model
+
   validates :xml, presence: true
   validate :content_type_must_be_xml
 
@@ -7,6 +9,16 @@ class Document < ApplicationRecord
   has_many :products, dependent: :destroy
   belongs_to :sender, class_name: "Company", optional: true
   belongs_to :receiver, class_name: "Company", optional: true
+
+  pg_search_scope :global_search,
+    associated_against: {
+      products: [ :name ],
+      sender: [ :x_nome ],
+      receiver: [ :x_nome ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 
   private
 
