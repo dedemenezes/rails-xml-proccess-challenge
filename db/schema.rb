@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_18_231621) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_18_234200) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,35 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_18_231621) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "logradouro"
+    t.string "numero"
+    t.string "complemento"
+    t.string "bairro"
+    t.string "x_municipio"
+    t.string "c_municipio"
+    t.string "uf"
+    t.string "cep"
+    t.string "c_pais"
+    t.string "x_pais"
+    t.string "fone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "cnpj"
+    t.string "x_nome"
+    t.string "x_fant"
+    t.string "ie"
+    t.string "crt"
+    t.string "ie_dest"
+    t.bigint "address_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_companies_on_address_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -97,6 +126,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_18_231621) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "companies", "addresses"
   add_foreign_key "products", "documents"
   add_foreign_key "receipts", "documents"
 end
