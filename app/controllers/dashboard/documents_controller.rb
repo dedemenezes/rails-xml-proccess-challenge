@@ -14,7 +14,7 @@ class Dashboard::DocumentsController < ApplicationController
         products.name ILIKE :query
         OR companies.x_nome ILIKE :query
       SQL
-      @documents = @documents.joins(:products, :sender, :receiver).where(sql_subquery, query: "%#{params[:query]}%").references([ :sender, :receiver ])
+      @documents = @documents.global_search(params[:query])
     end
   end
 
