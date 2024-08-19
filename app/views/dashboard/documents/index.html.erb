@@ -23,6 +23,8 @@
             <th scope="col">Id</th>
             <th scope="col">Numero da NF</th>
             <th scope="col">Data/Hora Emissão</th>
+            <th scope="col">Emitente</th>
+            <th scope="col">Destinatário</th>
             <th scope="col">Ações</th>
           </tr>
         </thead>
@@ -32,6 +34,8 @@
             <th scope="row"><%= document.id %></th>
             <td><%= document.receipt&.n_nf %></td>
             <td><%= document.receipt&.issue_date %></td>
+            <td><%= document.sender.x_nome %></td>
+            <td><%= document.receiver.x_nome %></td>
             <td><%= link_to 'Ver mais', dashboard_document_path(document), class: '' %></td>
           </tr>
           <% end %>
