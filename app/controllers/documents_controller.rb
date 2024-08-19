@@ -6,6 +6,8 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     if @document.save
+      CreateDocumentEmiJob.perform_later(@document)
+      CreateDocumentDestJob.perform_later(@document)
       CreateDocumentReceiptJob.perform_later(@document)
       CreateDocumentProductsJob.perform_later(@document)
       redirect_to dashboard_documents_path
