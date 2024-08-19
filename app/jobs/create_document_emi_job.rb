@@ -37,5 +37,8 @@ class CreateDocumentEmiJob < ApplicationJob
     }
 
     company = Company.find_or_create_by!(comp)
+
+    document.sender = company
+    document.save
   end
 end

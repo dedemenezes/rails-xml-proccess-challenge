@@ -5,6 +5,8 @@ class Document < ApplicationRecord
   has_one_attached :xml
   has_one :receipt, dependent: :destroy
   has_many :products, dependent: :destroy
+  belongs_to :sender, class_name: "Company", optional: true
+  belongs_to :receiver, class_name: "Company", optional: true
 
   private
 

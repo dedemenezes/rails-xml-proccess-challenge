@@ -34,5 +34,8 @@ class CreateDocumentDestJob < ApplicationJob
     }
 
     company = Company.find_or_create_by!(comp)
+
+    document.receiver = company
+    document.save
   end
 end
