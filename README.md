@@ -1,24 +1,28 @@
-# README
+# Processando XML - Desafio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Informações gerais
+- ruby v3.3.1
+- rails v7.2.0
+- bundler v2.5.10
+- redis v7.4.0
+- sidekiq v7.3.1
 
-Things you may want to cover:
+### O que foi implementado:
 
-* Ruby version
+- Autenticação de Usuário
+- Upload de Documentos
+- Processamento em Background
+- Relatório
+  - Dados do Documento Fiscal: Número de Série (serie), Número da Nota Fiscal (nNF), Data e Hora de Emissão (dhEmi), Dados do Emitente (emit) e do Destinatário (dest).
+  - Produtos Listados: Nome (xProd), NCM (NCM), CFOP (CFOP), Unidade Comercializada (uCom), Quantidade Comercializada (qCom), Valor Unitário (vUnCom).
+  - Impostos Associados: Valor do ICMS (vICMS), Valor do IPI (vIPI), Valor do PIS (vPIS), Valor do COFINS (vCOFINS).
+  - Totalizadores: Resumo dos valores totais dos produtos e impostos.
+- Filtros
+- Testes automatizados utilizando RSPEC para as funcionalidades principais.
 
-* System dependencies
+### Link de hospedagem do projeto
+[Heroku app](https://arcane-taiga-49369-8d4a3ed4eb54.herokuapp.com/)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Para acessar ⤵️
+- email: andre@dedev.lab
+- senha: 123456
