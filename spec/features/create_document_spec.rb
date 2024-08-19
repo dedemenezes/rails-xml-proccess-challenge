@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "CreateDocuments", type: :feature do
   describe 'with valid attributes' do
     it 'creates a new document' do
-      visit new_document_path
+      visit new_dashboard_document_path
       expect(Document.count).to eq(0)
       attach_file('document_xml', "#{::Rails.root}/spec/factories/data/CASE_001-NFe_004-000500778.xml")
       click_on 'Create Document'
@@ -14,7 +14,7 @@ RSpec.feature "CreateDocuments", type: :feature do
 
   describe 'with invalid attributes' do
     it 'render the form with errors' do
-      visit new_document_path
+      visit new_dashboard_document_path
       attach_file('document_xml', "#{::Rails.root}/spec/factories/data/document.txt")
       click_on 'Create Document'
       expect(page).to have_text('must be XML file format')

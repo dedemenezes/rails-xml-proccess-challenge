@@ -10,10 +10,6 @@ class Dashboard::DocumentsController < ApplicationController
     end
 
     if params[:query].present?
-      sql_subquery = <<~SQL
-        products.name ILIKE :query
-        OR companies.x_nome ILIKE :query
-      SQL
       @documents = @documents.global_search(params[:query])
     end
   end
@@ -24,5 +20,28 @@ class Dashboard::DocumentsController < ApplicationController
     if params[:order_by].present?
       @products = @products.sort_by { |prod| prod.taxes.find { |tax| tax.category == params[:order_by] }.value }.reverse
     end
+  end
+
+  def new
+    @document = Document.new
+  end
+
+  def create
+    @document = Document.new(document_params)
+    if @document.save
+      CreateDocumentEmiJob.perform_later(@document)
+      CreateDocumentDestJob.perform_later(@document)
+      CreateDocumentReceiptJob.perform_later(@document)
+      CreateDocumentProductsJob.perform_later(@document)
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def document_params
+    params.fetch(:document, {}).permit(:xml)
   end
 end

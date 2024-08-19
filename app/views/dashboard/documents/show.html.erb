@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
       <div class="position-relative mt-5 mb-4">
-        <%= link_to "Voltar", dashboard_documents_path, class: "btn btn-secondary position-absolute top-0" %>
+        <%= link_to "Voltar", root_path, class: "btn btn-secondary position-absolute top-0" %>
         <%= form_with url: dashboard_document_path(@document), method: :get, class: "d-flex position-absolute top-0 end-0" do |f| %>
           <%= select_tag :order_by, options_for_select(Tax::CATEGORIES, selected: params[:order_by]), class: 'form-select rounded-0 rounded-start' %>
           <%= f.submit 'Ordenar', class: 'btn btn-primary rounded-0 rounded-end' %>
