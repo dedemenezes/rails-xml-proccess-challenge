@@ -12,9 +12,9 @@ class Dashboard::DocumentsController < ApplicationController
     if params[:query].present?
       sql_subquery = <<~SQL
         products.name ILIKE :query
+        OR companies.x_nome ILIKE :query
       SQL
-      binding.b
-      @documents = @documents.joins(:products).where(sql_subquery, query: "%#{params[:query]}%")
+      @documents = @documents.joins(:products, :sender, :receiver).where(sql_subquery, query: "%#{params[:query]}%").references([ :sender, :receiver ])
     end
   end
 
