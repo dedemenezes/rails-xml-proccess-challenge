@@ -221,6 +221,9 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.7)
+    pg_search (2.3.7)
+      activerecord (>= 6.1)
+      activesupport (>= 6.1)
     popper_js (2.11.8)
     psych (5.1.2)
       stringio
@@ -425,6 +428,7 @@ DEPENDENCIES
   jbuilder
   nokogiri (~> 1.16, >= 1.16.7)
   pg
+  pg_search
   puma (>= 5.0)
   rails (~> 7.2.0)
   rspec-rails (~> 6.1.4)

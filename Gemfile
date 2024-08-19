@@ -49,6 +49,7 @@ gem "sidekiq", "~> 7"
 gem "sidekiq-failures"
 gem 'aws-sdk-s3'
 gem "devise"
+gem "pg_search"
 
 
 group :development, :test do
